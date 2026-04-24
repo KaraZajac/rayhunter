@@ -5,7 +5,6 @@ mod crypto_provider;
 mod diag;
 mod display;
 mod error;
-mod firewall;
 mod key_input;
 mod notifications;
 mod pcap;
@@ -294,7 +293,6 @@ async fn run_with_config(
         shutdown_token.clone(),
         wifi_status.clone(),
     );
-    firewall::apply(&config).await;
 
     let state = Arc::new(ServerState {
         config_path: args.config_path.clone(),
